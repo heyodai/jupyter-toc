@@ -1,14 +1,15 @@
 # Jupyter Notebook ToC
 
-This is a simple extension to generate a table of contents for a Jupyter notebook, like so:
+This is a simple extension to generate a table of contents for a Jupyter notebook.
+
+## Basic Usage
 
 ```python
-from jupyter_toc import toc
-
-print( toc.build("your_notebook.ipynb") )
+import jupyter_toc
+jupyter_toc.build()
 ```
 
-It will return something like this, which you can copy to a markdown cell:
+It will return something like this:
 
 ```markdown
 Table of Contents
@@ -18,12 +19,43 @@ Table of Contents
 - [Development](#development)
 ```
 
+## Advanced Usage
+
+You can pass arguments to customize the following:
+
+- `title` - The title of the table of contents.
+- `depth` - The maximum depth of headings to include in the table of contents.
+- `make_hyperlinks` - Whether to make the table of contents entries hyperlinks.
+- `print_output` - Whether to print the ToC or just return it as a string.
+
+## Contributing
+
+Feel free to open an issue or submit a pull request.
+
+To publish a new version to PyPI:
+```bash
+pip install twine # if you don't have it already
+python setup.py sdist bdist_wheel # build the package
+twine upload dist/* # upload to PyPI
+```
+
 ## Development
 
-- Create a virtual env: `python3 -m venv venv`
-- Activate the virtual env: `source venv/bin/activate`
-- Install the dependencies: `pip install -r requirements.txt`
-- To run the test script: `python3 -m unittest test_toc.py`
+### Running Tests
+
+The test suite can be run using Python's built-in `unittest` framework.
+
+Navigate to the `tests` directory and run:
+
+```
+python -m unittest test_jupyter_toc.py
+```
+
+Or, if you're in the root directory:
+
+```
+python -m unittest tests/test_jupyter_toc.py
+```
 
 ## Authors
 
